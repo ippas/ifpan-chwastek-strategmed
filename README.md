@@ -7,3 +7,7 @@ RNA-seq of osteoarthritis rat model
 ```
 cat fq-files.txt | head -25 | xargs -I {} -n 1 docker run --rm -d -v $PWD:/data pegi3s/fastqc /data/{}
 ```
+4. To run the multiQC report:
+```
+docker run -d --rm -v $PWD:/data ewels/multiqc:latest multiqc /data -o /data
+```
