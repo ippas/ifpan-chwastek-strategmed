@@ -20,10 +20,11 @@ files_2=`ls data/*/*/*/*_2.fq.gz | xargs -i echo \"{}\",`
 samples=`ls data/*/*/*/*_1.fq.gz | xargs -i bash -c 'BASENAME=$(echo {} | cut -d "." -f 1 | cut -d "/" -f 4); echo \"$BASENAME\",'`
 
 echo "{\"rna_seq_paired_end.fastqs_left\":[$files_1],\"rna_seq_paired_end.fastqs_right\":[$files_2],\"rna_seq_paired_end.sample_names\":[$samples]}" > input.json
-
-
-
-Get te inputs:
 ```
-ls data/*/*/*/*_1.fq.gz | xargs -i bash -c 'BASENAME=$(echo {} | cut -d "." -f 1 | cut -d "_" -f 1,2,3); echo $BASENAME' | xargs -i bash -c 'echo "{\"align_to_rat_genome.align_with_hisat2.fastq1\":\"{}_1.fq.gz\",\"align_to_rat_genome.align_with_hisat2.sample_name\":\"{}\",\"align_to_rat_genome.align_with_hisat2.fastq2\":\"{}_2.fq.gz\"}">{}-input.json'
+don't forget the extra commas and add this text:
+```
+    "rna_seq_paired_end.organism_name": "Rattus norvegicus",
+    "rna_seq_paired_end.release_version": "101",
+    "rna_seq_paired_end.analysis_id": "rna_seq_paired_end_test"
+}
 ```
