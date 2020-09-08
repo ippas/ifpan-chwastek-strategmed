@@ -11,3 +11,9 @@ cat fq-files.txt | head -25 | xargs -I {} -n 1 docker run --rm -d -v $PWD:/data 
 ```
 docker run -d --rm -v $PWD:/data ewels/multiqc:latest multiqc /data -o /data
 ```
+5. Align with Hisat2 to the rat genome:
+
+Get te inputs:
+```
+ls ls data/*/*/*/*_1.fq.gz | xargs -i bash -c 'BASENAME=$(echo {} | cut -d "." -f 1 | cut -d "/" -f 4); echo $BASENAME
+```
