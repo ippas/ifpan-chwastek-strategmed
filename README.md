@@ -11,7 +11,7 @@ cat fq-files.txt | head -25 | xargs -I {} -n 1 docker run --rm -d -v $PWD:/data 
 ```
 docker run -d --rm -v $PWD:/data ewels/multiqc:latest multiqc /data -o /data
 ```
-5. The rest of the analysis was run with the (IntelliSeq workflow)[https://gitlab.com/intelliseq/workflows/raw/rna-seq-paired-end@1.10.0/src/main/wdl/pipelines/rna-seq-paired-end/latest/rna-seq-paired-end.wdl]
+5. The rest of the analysis was run with the [IntelliSeq workflow](https://gitlab.com/intelliseq/workflows/raw/rna-seq-paired-end@1.10.0/src/main/wdl/pipelines/rna-seq-paired-end/latest/rna-seq-paired-end.wdl)
 
 Get the input:
 ```
@@ -30,3 +30,5 @@ don't forget the extra commas and add this text:
 ```
 
 5. Analysis was run in R 3.4 (see analysis code here)[]
+
+6. To estimate the abundances of Homo sapiens mRNA the [IntelliSeq workflow](https://gitlab.com/intelliseq/workflows/raw/rna-seq-paired-end@1.10.0/src/main/wdl/pipelines/rna-seq-paired-end/latest/rna-seq-paired-end.wdl) was run on the rat samples.
